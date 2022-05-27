@@ -2,9 +2,6 @@ version: "3.3"
 
 services:
     wine-box:
-        privileged: true
-        security_opt:
-        - seccomp:unconfined
         image: "chisbread/wine-box:latest"
         restart: unless-stopped
         container_name: "wine-box"
