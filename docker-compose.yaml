@@ -1,0 +1,19 @@
+version: "3.3"
+
+services:
+    wine-box:
+        privileged: true
+        security_opt:
+        - seccomp:unconfined
+        image: "chisbread/wine-box:latest"
+        restart: unless-stopped
+        container_name: "wine-box"
+        environment:
+            PAYLOADS: 1
+            GID: 1000
+            UID: 1000
+        ports:
+            - "8080:8080"
+        volumes:
+            - "/home/bread/external:/home/app/external"
+        tty: true
