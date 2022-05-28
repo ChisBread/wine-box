@@ -31,6 +31,6 @@ EXPOSE 8080
 USER app
 WORKDIR /home/app
 # init with GUI
-RUN bash -c 'nohup /entrypoint.sh 2>&1 &' && sleep 6 && /init.sh
+RUN bash -c 'nohup /entrypoint.sh 2>&1 &' && sleep 6 && /init.sh && sudo rm /tmp/.X0-lock
 #settings
 ENTRYPOINT ["/entrypoint.sh"]

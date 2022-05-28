@@ -24,5 +24,5 @@ wine msiexec /i wine-mono-7.0.0-x86.msi &
 sleep 10
 skipsomething "wine"
 wait
-sleep 15
+sleep 5
 rm wine-mono-7.0.0-x86.msi
