@@ -15,7 +15,8 @@ RUN dpkg --add-architecture i386 && apt-get full-upgrade -y \
 RUN apt-get install -y sudo \
     && useradd -m app && usermod -aG sudo app && echo 'app ALL=(ALL) NOPASSWD:ALL' >> //etc/sudoers
 #envs
-RUN apt-get install -y ttf-wqy-microhei locales \
+RUN apt-get install -y ttf-wqy-microhei locales procps vim \
+    && rm -rf /var/lib/apt/lists/* \
     && sed -ie 's/# zh_CN.UTF-8 UTF-8/zh_CN.UTF-8 UTF-8/g' /etc/locale.gen \
     && locale-gen
 ENV DISPLAY_WIDTH=1280 \
