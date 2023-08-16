@@ -19,10 +19,10 @@ function skipsomething() {
         sleep 0.2
     done
 }
-wget https://dl.winehq.org/wine/wine-mono/7.0.0/wine-mono-7.0.0-x86.msi
-wine msiexec /i wine-mono-7.0.0-x86.msi &
-sleep 10
+wget http://mirrors.ustc.edu.cn/wine/wine/wine-mono/8.0.0/wine-mono-8.0.0-x86.msi
+wine msiexec /i wine-mono-8.0.0-x86.msi &
+sleep 20
 skipsomething "wine"
 wait
 sleep 5
-rm wine-mono-7.0.0-x86.msi
+rm wine-mono-8.0.0-x86.msi
