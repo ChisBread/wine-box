@@ -1,15 +1,11 @@
 
-FROM debian:bullseye
+FROM tianon/wine:8.0.2
 #deps
 RUN apt-get update && apt-get install -y \
     git net-tools curl wget supervisor fluxbox xterm \
     x11vnc novnc xvfb xdotool \
     gnupg2 software-properties-common
-RUN dpkg --add-architecture i386 && apt-get full-upgrade -y \
-    && wget -nc https://dl.winehq.org/wine-builds/winehq.key \
-    && apt-key add winehq.key && add-apt-repository 'deb https://dl.winehq.org/wine-builds/debian/ bullseye main' \
-    && apt-get update && apt-get install -y --install-recommends winehq-stable \
-    && mkdir ~/.vnc && x11vnc -storepasswd vncpass ~/.vnc/passwd
+RUN mkdir ~/.vnc && x11vnc -storepasswd vncpass ~/.vnc/passwd
 
 #app user
 RUN apt-get install -y sudo \
